@@ -66,15 +66,18 @@ def add_ratings(filename):
     # Repeat until break
     while True:
 
-        # Get restaurant rating from user
-        restaurant_rating = int(input("Enter a restaurant rating: "))
+        try: 
+            # Get restaurant rating from user
+            restaurant_rating = int(input("Enter a restaurant rating: "))
 
-        # Validate rating is between 1 and 5 (inclusive)
-        if restaurant_rating >= 1 and restaurant_rating <= 5:
-            all_restaurants[restaurant_name] = restaurant_rating
-            break
-        else:
-            print("Please enter a rating between 1 and 5 (inclusive): ")
+            # Validate rating is between 1 and 5 (inclusive)
+            if restaurant_rating >= 1 and restaurant_rating <= 5:
+                all_restaurants[restaurant_name] = restaurant_rating
+                break
+            else:
+                print("Please enter a rating between 1 and 5 (inclusive): ")
+        except ValueError:
+            print("Not an integer. Try again.")
 
     sorted_restaurants = sort_restaurants(all_restaurants)
 
