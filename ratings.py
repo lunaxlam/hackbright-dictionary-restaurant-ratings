@@ -57,12 +57,24 @@ def add_ratings(filename):
     Print all the ratings in ascending alpha-sort order.
     """
 
+    # Initialize a dictionary of restaurant data to add-to
     all_restaurants = get_restaurant_data(filename)
 
+    # Get restaurant name from user
     restaurant_name = input("Enter a restaurant name: ")
-    restaurant_rating = input("Enter a restaurant rating: ")
 
-    all_restaurants[restaurant_name] = restaurant_rating
+    # Repeat until break
+    while True:
+
+        # Get restaurant rating from user
+        restaurant_rating = int(input("Enter a restaurant rating: "))
+
+        # Validate rating is between 1 and 5 (inclusive)
+        if restaurant_rating >= 1 and restaurant_rating <= 5:
+            all_restaurants[restaurant_name] = restaurant_rating
+            break
+        else:
+            print("Please enter a rating between 1 and 5 (inclusive): ")
 
     sorted_restaurants = sort_restaurants(all_restaurants)
 
