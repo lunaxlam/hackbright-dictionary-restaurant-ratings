@@ -19,7 +19,7 @@ def get_restaurant_data(filename):
     # Move pointer to first element of the file
     filename.seek(0)
 
-    # Parse the file contents and store store the restaurant, ratings in a dictionary
+    # Parse the file contents and store the restaurant, ratings in a dictionary
     for line in file:
         restaurant_info = line.strip().split(":")
         all_restaurants[restaurant_info[0]] = restaurant_info[1]
